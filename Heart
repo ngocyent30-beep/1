@@ -1,0 +1,53 @@
+import turtle
+
+# Thiết lập màn hình và bút vẽ
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+screen.bgcolor("black")  # Nền đen để trái tim nổi bật
+
+t = turtle.Turtle()
+t.hideturtle()
+t.speed(3)
+
+
+# Hàm vẽ đường cong trái tim
+def draw_heart():
+  t.color("red")
+  t.fillcolor("#ff3366")  # Màu hồng đỏ rực rỡ
+  t.begin_fill()
+
+  t.left(140)
+  t.forward(224)
+
+  # Vẽ vòng cung bên trái
+  for _ in range(200):
+    t.right(1)
+    t.forward(2)
+
+  t.left(120)
+
+  # Vẽ vòng cung bên phải
+  for _ in range(200):
+    t.right(1)
+    t.forward(2)
+
+  t.forward(224)
+  t.end_fill()
+
+
+# Đưa bút về vị trí trung tâm phía trên một chút
+t.penup()
+t.goto(0, -80)
+t.pendown()
+
+# Thực hiện vẽ
+draw_heart()
+
+# Thêm dòng chữ chúc mừng (tùy chọn)
+t.penup()
+t.goto(0, -180)
+t.color("white")
+t.write("I Love You", align="center", font=("Arial", 20, "bold"))
+
+# Giữ cửa sổ hiển thị
+turtle.done()
